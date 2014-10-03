@@ -12,4 +12,13 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, strong) UITableView *taskTable;
+@property (nonatomic, strong) UITextField *taskField;
+@property (nonatomic, strong) UIButton *insertButton;
+
+@property (nonatomic, strong) NSMutableArray *tasks;
+
+-(void)addTask:(id)sender;
+
+
 @end
