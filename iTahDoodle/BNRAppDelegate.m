@@ -37,9 +37,18 @@
     self.taskField.borderStyle = UITextBorderStyleRoundedRect;
     self.taskField.placeholder = @"Type a task to insert";
     
+    // Create and configure the UIButton instance
+    self.insertButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.insertButton.frame = buttonFrame;
     
+    // Give the button a title
+    [self.insertButton setTitle:@"Insert task" forState:UIControlStateNormal];
     
-    [self.window makeKeyAndVisible];
+    // Add our three UIView elements to the window
+    [self.window addSubview:self.taskTable];
+    [self.window addSubview:self.taskField];
+    [self.window addSubview:self.insertButton];
+
     return YES;
 }
 
