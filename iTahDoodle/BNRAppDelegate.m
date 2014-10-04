@@ -20,6 +20,17 @@
     self.window = theWindow;
     
     // Define the frame rectangles of the three UI Elements
+    // CGRectMake() creates a CGRect from (x, y, width, height)
+    CGRect tableFrame = CGRectMake(0, 80, winFrame.size.width, winFrame.size.height - 100);
+    CGRect fieldFrame = CGRectMake(20, 40, 200, 31);
+    CGRect buttonFrame = CGRectMake(228, 40, 72, 31);
+
+    // Create and configure the UITableView instance
+    self.taskTable = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    self.taskTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // Tell the table view which class to instantiate whenever it needs to create a new cell
+    [self.taskTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     
     [self.window makeKeyAndVisible];
