@@ -32,6 +32,12 @@
     // Tell the table view which class to instantiate whenever it needs to create a new cell
     [self.taskTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
+    // Create and configure the UITextField instance where new tasks will be entered
+    self.taskField = [[UITextField alloc] initWithFrame:fieldFrame];
+    self.taskField.borderStyle = UITextBorderStyleRoundedRect;
+    self.taskField.placeholder = @"Type a task to insert";
+    
+    
     
     [self.window makeKeyAndVisible];
     return YES;
