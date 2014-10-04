@@ -44,10 +44,17 @@
     // Give the button a title
     [self.insertButton setTitle:@"Insert task" forState:UIControlStateNormal];
     
+    // Set the target and action for the insert button
+    [self.insertButton addTarget:self action:@selector(addTask:) forControlEvents:UIControlEventTouchUpInside];
+    
     // Add our three UIView elements to the window
     [self.window addSubview:self.taskTable];
     [self.window addSubview:self.taskField];
     [self.window addSubview:self.insertButton];
+    
+    // Finalize the window and put it on the screen
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
 
     return YES;
 }

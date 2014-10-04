@@ -438,6 +438,7 @@
 				4360FE1419DF4282001E3796 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4360FE1519DF4282001E3796 /* Build configuration list for PBXNativeTarget "iTahDoodleTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +447,7 @@
 				4360FE1719DF4282001E3796 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
