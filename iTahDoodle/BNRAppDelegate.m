@@ -10,11 +10,18 @@
 
 @implementation BNRAppDelegate
 
+#pragma mark - Application delegate callbacks
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    // Create an configure the UIWindow Instance
+    CGRect winFrame = [[UIScreen mainScreen] bounds];
+    UIWindow *theWindow = [[UIWindow alloc] initWithFrame:winFrame];
+    self.window = theWindow;
+    
+    // Define the frame rectangles of the three UI Elements
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
