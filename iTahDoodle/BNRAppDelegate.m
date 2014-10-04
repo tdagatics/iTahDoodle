@@ -113,4 +113,26 @@
     [self.taskField resignFirstResponder];
 }
 
+#pragma mark - Table View Management
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //The number of rows in the section is equal to the number of tasks
+    return [self.tasks count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // To improve performance, this method first checks for an existing cell object that we can reuse
+    // If there isn't one, then a new cell is created
+    UITableViewCell *c = [self.taskTable dequeueReusableCellWithIdentifier:@"cell"];
+    
+    // Then we (re)configure the cell based on the model object, in this case the tasks array
+    NSString *item = [self.tasks objectAtIndex:indexPath.row];
+    c.textLabel.text = item;
+    
+    // And hand the properly configured cell back to the table view
+    return c;
+}
+
 @end
