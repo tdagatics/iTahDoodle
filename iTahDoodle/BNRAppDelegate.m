@@ -8,6 +8,13 @@
 
 #import "BNRAppDelegate.h"
 
+// Helper function to fetch the path to our to-do data stored on disk
+NSString *BNRDocPath()
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [pathList[0] stringByAppendingPathComponent:@"data.td"];
+}
+
 @implementation BNRAppDelegate
 
 #pragma mark - Application delegate callbacks
@@ -78,6 +85,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // Save our tasks array to disk
+    [self.tasks writeToFile:BNRDocPath() atomically:YES];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
