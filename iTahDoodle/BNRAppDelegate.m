@@ -29,6 +29,12 @@
     self.taskTable = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
     self.taskTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    // Make the BNRAppDelegate the table view's dataSource
+    // The UITableViewDataSource protocol has two required methods. A table view's data source must be
+    // prepared to tell the tableview how many rows are in a given section of the table (tableView:numberOfRowsInSection:)
+    // as well as what the cell in a given row should be (tableView:cellForRowAtIndexPath:)
+    self.taskTable.dataSource = self;
+    
     // Tell the table view which class to instantiate whenever it needs to create a new cell
     [self.taskTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
