@@ -22,7 +22,16 @@ NSString *BNRDocPath()
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Create an empty array to get us started
-    self.tasks = [NSMutableArray array];
+    
+    // Load an existing dataset or create a new one
+    NSArray *plist = [NSArray arrayWithContentsOfFile:BNRDocPath()];
+    if (plist) {
+        // We have a dataset; copy its tasks
+        self.tasks = [plist mutableCopy];
+    } else {
+        // There is no dataset; create an empty array
+        self.tasks = [NSMutableArray array];
+    }
     
     // Create an configure the UIWindow Instance
     CGRect winFrame = [[UIScreen mainScreen] bounds];
