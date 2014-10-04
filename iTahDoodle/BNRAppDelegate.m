@@ -14,6 +14,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Create an empty array to get us started
+    self.tasks = [NSMutableArray array];
+    
     // Create an configure the UIWindow Instance
     CGRect winFrame = [[UIScreen mainScreen] bounds];
     UIWindow *theWindow = [[UIWindow alloc] initWithFrame:winFrame];
@@ -106,6 +109,10 @@
     
     // Log text to console
     NSLog(@"Task entered: %@", text);
+    [self.tasks addObject:text];
+    
+    // Refresh the table so the new item shows up
+    [self.taskTable reloadData];
     
     // Clear out the text field
     [self.taskField setText:@""];
@@ -125,7 +132,7 @@
 {
     // To improve performance, this method first checks for an existing cell object that we can reuse
     // If there isn't one, then a new cell is created
-    UITableViewCell *c = [self.taskTable dequeueReusableCellWithIdentifier:@"cell"];
+    UITableViewCell *c = [self.taskTable dequeueReusableCellWithIdentifier:@"Cell"];
     
     // Then we (re)configure the cell based on the model object, in this case the tasks array
     NSString *item = [self.tasks objectAtIndex:indexPath.row];
